@@ -6,5 +6,11 @@
     <select id="listAll" resultType="com.mba.entity.User">
         select * from user
     </select>
+    <select id="pageC" resultType="com.mba.entity.User">
+        select * from user
+    </select>
+    <select id="pageCC" resultType="com.mba.entity.User">
+        select * from user ${ew.customSqlSegment}
+    </select>
 
 </mapper>
