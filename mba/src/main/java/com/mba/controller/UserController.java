@@ -40,5 +40,11 @@ public class UserController {
     public boolean delete(@RequestParam Integer id){
         return userService.removeById(id);
     }
-
+    //查询（模糊查询，匹配）
+    @PostMapping("/listP")
+    public List<User> listP(@RequestBody User user){
+        LambdaQueryWrapper<User> lambdaQueryWrapper = new LambdaQueryWrapper<>();
+        lambdaQueryWrapper.like(User::getName,user.getName());
+        return userService.list(lambdaQueryWrapper);
+    }
 }
